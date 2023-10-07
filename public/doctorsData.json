@@ -3,18 +3,18 @@
       "name": "Doctor Mike",
       "qualifications": "Board-certified family medicine physician, media personality",
       "doctorImage": "https://i.ibb.co/pZRX5w1/doctor1.jpg",
-      "ratings": 4
+      "rating": 4
     },
     {
       "name": "Samiha Akter",
       "qualifications": "Best Surgeon in the town",
       "doctorImage": "https://i.ibb.co/v4QXVmB/doctor2.jpg",
-      "ratings": 4
+      "rating": 4
     },
     {
       "name": "Saiful Islam",
       "qualifications": "Best Heart specialist",
       "doctorImage": "https://i.ibb.co/nc4YhjK/doctor3.jpg",
-      "ratings": 4
+      "rating": 4
     }
   ]

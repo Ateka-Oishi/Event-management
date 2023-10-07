@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-   return (
-      <div>
-          <nav
+    return (
+        <div>
+             <nav
          className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark "
          style={{ opacity: '.7' }}
       >
@@ -37,7 +37,7 @@ const Header = () => {
                   <NavLink className="nav-link" to="/appointment">
                      Appointment
                   </NavLink>
-                  <NavLink smooth className="nav-link" to="/services">
+                  <NavLink  className="nav-link" to="/services">
                      Services
                   </NavLink>
                   <NavLink className="nav-link " to="/feedback">
@@ -53,8 +53,8 @@ const Header = () => {
             </div>
          </div>
       </nav>
-      </div>
-   );
+        </div>
+    );
 };
 
 export default Header;

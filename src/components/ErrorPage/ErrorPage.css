@@ -1,0 +1,7 @@
+.notFoundImage{
+    min-height: inherit;
+    padding: 5rem;
+}
+.notFoundImage img{
+    min-height: inherit;
+}

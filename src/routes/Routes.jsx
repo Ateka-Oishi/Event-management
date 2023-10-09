@@ -28,12 +28,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/service/:id',
-                element:<Services></Services>,
+                element:<PrivateRoute><Services></Services></PrivateRoute>,
                 loader: ()=>fetch('/service.json')
             },
             {
                 path:'/feedback',
-                element:<Feedback></Feedback>
+                element:<PrivateRoute><Feedback></Feedback></PrivateRoute>
             },
             {
                 path:'/register',

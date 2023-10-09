@@ -3,13 +3,13 @@ const Appointment = () => {
     return (
         <div>
            <div className="my-5 p-4">
-           <h1 className="text-secondary">Appointment Form</h1>
+           <h1 className="text-secondary text-center mb-5">Appointment Form</h1>
          <div className=" px-5 mx-auto ">
             <div className="d-flex justify-content-center align-items-center">
                <form className="w-100 border p-4">
                   <div className="form-row">
                      <div className="form-group col">
-                        <label>Email</label>
+                        <label htmlFor="inputEmail4">Email</label>
                         <input
                            type="email"
                            className="form-control w-100 border"
@@ -20,7 +20,7 @@ const Appointment = () => {
                      
                   </div>
                   <div className="form-group">
-                     <label>Address</label>
+                     <label htmlFor="inputAddress">Address</label>
                      <input
                         type="text"
                         className="form-control w-100 border"
@@ -29,7 +29,7 @@ const Appointment = () => {
                      />
                   </div>
                   <div className="form-group">
-                     <label>Address 2</label>
+                     <label htmlFor="inputAddress2">Address 2</label>
                      <input
                         type="text"
                         className="form-control w-100 border"
@@ -39,7 +39,7 @@ const Appointment = () => {
                   </div>
                   <div className="form-row">
                      <div className="form-group col">
-                        <label>City</label>
+                        <label htmlFor="inputCity">City</label>
                         <input
                            type="text"
                            className="form-control w-100 border"
@@ -47,16 +47,16 @@ const Appointment = () => {
                         />
                      </div>
                      <div className="form-group col">
-                        <label>Time</label>
+                        <label htmlFor="inputState">Time</label>
                         <select id="inputState" className="form-control">
-                           <option selected>Choose...</option>
+                           <option defaultValue>Choose...</option>
                            <option>10 AM</option>
                            <option>11 AM</option>
                            <option>12 AM</option>
                         </select>
                      </div>
                      <div className="form-group col ">
-                        <label>Zip</label>
+                        <label htmlFor="inputZip">Zip</label>
                         <input
                            type="text"
                            className="form-control border w-100"
@@ -71,7 +71,7 @@ const Appointment = () => {
                            type="checkbox"
                            id="gridCheck"
                         />
-                        <label className="form-check-label" for="gridCheck">
+                        <label htmlFor="gridCheck" className="form-check-label">
                            Check me out
                         </label>
                      </div>

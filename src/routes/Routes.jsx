@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
-import Home from "../components/Home/Home";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Appointment from "../components/Appointment/Appointment";
 import Feedback from "../components/Feedback/Feedback";
-import Services from "../components/Services/Services";
+import Services from "../components/services/services";
+import Home from "../components/Home/Home";
+import Register from "../components/Register/Register";
+import Login from "../components/Login/Login";
 
 const router = createBrowserRouter([
     {
@@ -14,22 +16,35 @@ const router = createBrowserRouter([
         children: [
             {
             path: '/',
-            element: <Home></Home>,
-            loader: () => fetch('/service.json')
+            element: <Home></Home>
+                     
 
             },
+            
             {
                 path: '/appointment',
                 element: <Appointment></Appointment>
             },
             {
-                path:'/services',
-                element: <Services></Services>
+                path:'/service/:id',
+                element:<Services></Services>,
+                loader: ()=>fetch('/service.json')
             },
             {
                 path:'/feedback',
-                element: <Feedback></Feedback>
-            }
+                element:<Feedback></Feedback>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            
+           
+           
             
         ]
     }

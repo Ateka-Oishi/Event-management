@@ -4,7 +4,7 @@ const Feedback = () => {
         <div>
         <div
            className="row row-cols-1 row-cols-sm-2 px-5 mx-auto justify-content-center align-items-center"
-           style={{ 'min-height': 'calc(100vh - 292px)' }}
+           style={{ minHeight: 'calc(100vh - 292px)' }}
         >
            <div className="d-flex justify-content-center align-items-center h-100 ">
               <div className="w-100">

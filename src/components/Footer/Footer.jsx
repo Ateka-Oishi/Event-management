@@ -4,12 +4,13 @@ import { FaFacebookSquare, FaGithubSquare, FaTwitterSquare } from 'react-icons/f
 
 const Footer = () => {
     return (
-        <div className="bg-dark text-white p-4" style={{ 'z-index': '10' }}>
+        
+        <div className="bg-dark text-white p-4" style={{ zIndex: '10' }}>
          <div className="container text-center">
             <div className="d-flex flex-column flex-sm-row justify-content-between  mb-3">
                <div className="">
                   <ul
-                     style={{ 'list-style-type': 'none' }}
+                     style={{ listStyleType: 'none' }}
                      className="text-center fs-4  text-white"
                   >
                      <div>
@@ -29,9 +30,9 @@ const Footer = () => {
                         </NavLink>
                      </div>
                      <div>
-                        <NavLink
+                     <NavLink
                            className="nav-link text-white"
-                           to="/services"
+                           to="/service"
                         >
                            Services
                         </NavLink>
@@ -68,6 +69,7 @@ const Footer = () => {
             <p>Copyright &copy;2023 <span style={{color:"#0D6EFD"}}>HealthCare.</span></p>
          </div>
       </div>
+     
     );
 };
 

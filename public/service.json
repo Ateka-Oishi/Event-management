@@ -3,7 +3,7 @@
       "id": 1,
       "title": "Blood Pressure Measurement",
       "fee": 1500,
-      "details": "Used to help diagnose and monitor various health conditions.",
+      "details": "Essential blood tests for Health",
       "FullDetails": "The easiest way to measure your own blood pressure is to purchase an automated cuff. Automatic blood pressure machines are user-friendly and especially helpful if you have hearing impairments. These types of blood pressure cuffs have a digital monitor that displays your blood pressure reading on a screen.",
       "image": "https://i.ibb.co/4pg8Fdt/1.jpg"
     },
@@ -11,7 +11,7 @@
       "id": 2,
       "title": "Pulmonary Function Testing",
       "fee": 1700,
-      "details": "Prioritize daily lung checkups for optimal health.",
+      "details": "Prioritize daily lung checkups.",
       "FullDetails": "A function test measures the health of your lungs and can be used to diagnose and monitor lung conditions. During the test, you will exhale as much air as possible, as forcefully as possible, into a device called a spirometer.",
       "image": "https://i.ibb.co/GRDDsnn/2.jpg"
     },
@@ -19,7 +19,7 @@
       "id": 3,
       "title": "Infant Care Services",
       "fee": 1400,
-      "details": "Care for your baby like they are our own.",
+      "details": "Nurture your Baby with care.",
       "FullDetails": "The term infant care refers to the social welfare service concerning support for nursery facilities and home fostering. It involves taking care of and nurturing infants aged 0 to 5 years old in a healthy and safe manner, while providing them with suitable education for their mental and physical development.",
       "image": "https://i.ibb.co/CQ9Ltyc/3.jpg"
     },
@@ -27,7 +27,7 @@
       "id": 4,
       "title": "Dental Check-Up",
       "fee": 1200,
-      "details": "Take great care of your teeth through regular checkups.",
+      "details": "Maintain Oral health with checkups.",
       "FullDetails": "A check-up allows your dentist to see if you have any dental problems and helps you keep your mouth healthy. Leaving problems untreated could make them more difficult to treat in the future, so it's best to deal with problems early, or, if possible, prevent them altogether.",
       "image": "https://i.ibb.co/FqMCGhH/4.jpg"
     },
@@ -35,7 +35,7 @@
       "id": 5,
       "title": "Hematological Examination",
       "fee": 2700,
-      "details": "A routine blood test is essential for maintaining good health.",
+      "details": "Diagnose and Monitor Health.",
       "FullDetails": "A routine blood test consists of getting blood taken at your doctor's office or at a lab. Usually, the technician, nurse, or doctor will have you sit down on a chair with your feet on the ground. They will use an antibacterial wipe to cleanse the part of your arm where they'll draw blood.",
       "image": "https://i.ibb.co/vmM3bXq/5.jpg"
     },
@@ -43,7 +43,7 @@
       "id": 6,
       "title": "Electrocardiogram (ECG) Testing",
       "fee": 1300,
-      "details": "ECG test is a high-class medical examination.",
+      "details": "High-class ECG medical exam",
       "FullDetails": "Generally, the test involves attaching a number of small, sticky sensors called electrodes to your arms, legs, and chest. These are connected by wires to an ECG recording machine. You don't need to do anything special to prepare for the test. You can eat and drink as normal beforehand.",
       "image": "https://i.ibb.co/RQSLGjX/6.jpg"
     }

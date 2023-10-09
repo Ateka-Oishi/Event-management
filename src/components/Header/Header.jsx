@@ -1,6 +1,36 @@
+/* eslint-disable no-unused-vars */
+import { createContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
+import { signOut } from "firebase/auth";
+import { Alert } from "react-bootstrap";
 
 const Header = () => {
+   const { user, logOut } = createContext(AuthContext);
+   const [email, setEmail] = useState("");
+   const [error, setError] = useState('')
+   const [isNavOpen, setIsNavOpen] = useState(false);
+      
+   const handleToggleNav = () => {
+      setIsNavOpen(!isNavOpen);
+   };
+
+      const handleLogout = async(e) => {
+         e.preventDefault();
+         setError("");
+         try {
+            await signOut(email);
+      
+         }catch (err){
+            setError(err.message);
+      
+         }
+        
+      };
+    
+
+
+  
     return (
         <div>
              <nav
@@ -17,15 +47,24 @@ const Header = () => {
             <button
                className="navbar-toggler"
                type="button"
+               onClick={handleToggleNav}
                data-bs-toggle="collapse"
                data-bs-target="#navbarNavAltMarkup"
                aria-controls="navbarNavAltMarkup"
                aria-expanded="false"
                aria-label="Toggle navigation"
             >
-               <span className="navbar-toggler-icon"></span>
+               <span
+                     className={`navbar-toggler-icon ${
+                        isNavOpen ? "open" : ""
+                     }`}
+                  ></span>
             </button>
-            <div className="collapse navbar-collapse">
+            <div
+                  className={`collapse navbar-collapse ${
+                     isNavOpen ? "show" : ""
+                  }`}
+               >
                <div className="navbar-nav ms-auto d-flex justify-content-center align-items-center">
                   <NavLink
                      className="nav-link active"
@@ -34,23 +73,31 @@ const Header = () => {
                   >
                      Home
                   </NavLink>
+                  
                   <NavLink className="nav-link" to="/appointment">
                      Appointment
                   </NavLink>
-                  <NavLink  className="nav-link" to="/services">
-                     Services
-                  </NavLink>
-                  <NavLink  className="nav-link" to="/gallery">
-                     Gallery
-                  </NavLink>
+                  
                   <NavLink className="nav-link " to="/feedback">
                      Feedback
-                       </NavLink>
-                       
-                     
+                       </NavLink>  
+                       {error  && <Alert variant="danger">{error}</Alert> }            
+                     {
+                       user?.email && <span className="text-white p-2 border rounded-pill">{user.displayName}</span>
+                     }
+                     {
+                       user?.email ? (
+                     <NavLink className="nav-link " to="/">
+                     <button onClick={handleLogout} className="btn btn-primary">
+                        logOut
+                     </button>
+                     </NavLink>
+                  ) : (
                      <NavLink className="nav-link " to="/register">
                         <button className="btn btn-primary">Register / Login</button>
                      </NavLink>
+                  )}
+                  
                   
                </div>
             </div>

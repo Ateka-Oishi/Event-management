@@ -1,33 +1,38 @@
 /* eslint-disable no-unused-vars */
 import './register.css'
 import { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from '../../Context/AuthProvider';
-import { Alert } from 'bootstrap';
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const { signUp }= useContext(AuthContext);
-  const navigate = useNavigate();
+  const { signUp, signInUsingGoogle }= useContext(AuthContext);
 
   const handleRegister = (e) => {
-   
-   
    e.preventDefault();
-    setError("");
-   try {
-      signUp(name, email, password);
-      navigate("/");
+   const name = e.target.name.value;
+   const email = e.target.email.value;
+   const password = e.target.password.value;
+   console.log(name, email, password);
 
-   }catch (err){
-      setError(err.message);
-
-   }
-  
+   signUp(email, password)
+       .then(result => {
+           console.log(result.user)
+       })
+       .catch(error => {
+           console.error(error);
+       })
+    
 };
+
+const handleGoogleSignIn = () => {
+   signInUsingGoogle()
+       .then(result => {
+           console.log(result.user)
+       })
+       .catch(error => {
+           console.error(error)
+       })
+}
 
   
   return (
@@ -41,29 +46,24 @@ const Register = () => {
                      <p className="text-muted">
                         Please give your data.
                      </p>
-                     {error  && <Alert variant="danger">{error}</Alert> }
                      <input
                      type="name"
                      placeholder="User Name"
                      required
                      
-                     onChange={(e) => setName(e.target.value)}
                      />
                      <input
                         type="email"
                         placeholder="Email"
                         required
                         autoComplete="username"
-                        onChange={(e) => setEmail(e.target.value)}
                      />
                      <input
                         type="password"
                         placeholder="Password"
                         required
                         autoComplete="current-password"
-                        onChange={(e) => setPassword(e.target.value)}
                      />
-                     <p className="text-white">{error}</p>
                      <input
                         type="submit"
                         onSubmit={handleRegister}
@@ -78,6 +78,7 @@ const Register = () => {
                                  
                                  className="icoGoogle"
                                  title="Google +"
+                                 onClick={handleGoogleSignIn}
                                  
                               >
                                  <i className="fa fa-google-plus"></i>

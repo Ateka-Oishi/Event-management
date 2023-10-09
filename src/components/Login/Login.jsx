@@ -1,35 +1,40 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
 import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider";
-import { Alert } from "react-bootstrap";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
 
 const Login = () => {
-   const [name, setName] = useState("");
-   const [email, setEmail] = useState("");
-   const [password, setPassword] = useState("");
-   const [error, setError] = useState("");
-   const { logIn } = useContext(AuthContext);
+   const { logIn, signInUsingGoogle } = useContext(AuthContext);
    const navigate = useNavigate();
   
-   const handleLogin = async(e) => {
+   const handleLogin = e => {
       e.preventDefault();
-      setError("");
-      try {
-         await logIn(name, email, password);
-         navigate("/register");
-   
-      }catch (err){
-         setError(err.message);
-   
-      }
-     
-   };
-   
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+
+        
+        logIn(email, password)
+            .then(result => {
+                console.log(result.user)
+                e.target.reset();
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error)
+            })
+   }
+   const handleGoogleSignIn = () => {
+      signInUsingGoogle()
+          .then(result => {
+              console.log(result.user)
+          })
+          .catch(error => {
+              console.error(error)
+          })
+  }
    
   
   return (
@@ -42,22 +47,18 @@ const Login = () => {
                      <p className="text-muted">
                         Please LogIn!
                      </p>
-                     {error  && <Alert variant="danger">{error}</Alert> }
                      <input
                         type="email"
                         placeholder="Email"
                         required
                         autoComplete="username"
-                        onChange={(e) => setEmail(e.target.value)}
                      />
                      <input
                         type="password"
                         placeholder="Password"
                         required
                         autoComplete="current-password"
-                        onChange={(e) => setPassword(e.target.value)}
                      />
-                     <p className="text-white">{error}</p>
                      <input
                         type="submit"
                         onSubmit={handleLogin}
@@ -69,7 +70,7 @@ const Login = () => {
                         <ul className="social-network social-circle">
                            <li>
                               <a
-                                 // onClick={}
+                                 onClick={handleGoogleSignIn}
                                  className="icoGoogle"
                                  title="Google +"
                                 

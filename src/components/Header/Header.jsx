@@ -1,30 +1,20 @@
 /* eslint-disable no-unused-vars */
-import { createContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import { signOut } from "firebase/auth";
-import { Alert } from "react-bootstrap";
 
 const Header = () => {
-   const { user, logOut } = createContext(AuthContext);
-   const [email, setEmail] = useState("");
-   const [error, setError] = useState('')
+   const { user, logOut} = useContext(AuthContext);
    const [isNavOpen, setIsNavOpen] = useState(false);
       
    const handleToggleNav = () => {
       setIsNavOpen(!isNavOpen);
    };
 
-      const handleLogout = async(e) => {
-         e.preventDefault();
-         setError("");
-         try {
-            await signOut(email);
-      
-         }catch (err){
-            setError(err.message);
-      
-         }
+      const handleLogout = (e) => {
+        logOut()
+        .then(() =>console.log('user logged out'))
+        .catch(error =>console.error())
         
       };
     
@@ -81,23 +71,22 @@ const Header = () => {
                   <NavLink className="nav-link " to="/feedback">
                      Feedback
                        </NavLink>  
-                       {error  && <Alert variant="danger">{error}</Alert> }            
+                     
+                     
+
                      {
-                       user?.email && <span className="text-white p-2 border rounded-pill">{user.displayName}</span>
-                     }
-                     {
-                       user?.email ? (
-                     <NavLink className="nav-link " to="/">
+                      user? <> 
+                      <span className="text-white p-2 border rounded-pill">{user.email}</span>
                      <button onClick={handleLogout} className="btn btn-primary">
-                        logOut
+                        SignOut
                      </button>
-                     </NavLink>
-                  ) : (
-                     <NavLink className="nav-link " to="/register">
-                        <button className="btn btn-primary">Register / Login</button>
-                     </NavLink>
-                  )}
-                  
+                     
+                     </>
+                   : 
+                     <Link className="nav-link " to="/login">
+                      <button className='btn btn-primary'>LogIn</button>
+                     </Link>
+                     }  
                   
                </div>
             </div>

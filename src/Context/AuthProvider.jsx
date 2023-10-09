@@ -12,6 +12,8 @@ import{
 import { auth } from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
+
 const AuthProvider = ({children}) => {
     
     const [user, setUser] = useState();
@@ -34,8 +36,7 @@ const AuthProvider = ({children}) => {
     };
     const signInUsingGoogle = () => {
         setLoading(true)
-        const GoogleProvider = new GoogleAuthProvider()
-        return signInWithPopup(auth, GoogleProvider)
+        return signInWithPopup(auth, googleProvider)
      }
 
     useEffect( () =>{

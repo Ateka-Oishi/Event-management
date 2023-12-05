@@ -12,11 +12,11 @@ const Header = () => {
    };
 
       const handleLogout = (e) => {
-        logOut()
+        logOut() 
         .then(() =>console.log('user logged out'))
-        .catch(error =>console.error())
+        .catch(error =>console.error(error))
         
-      };
+        };
     
 
 

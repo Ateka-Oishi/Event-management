@@ -1,6 +1,6 @@
 # Website : Health Care Management
 
-Live Link : https://health-wellness-events-d3d8c.web.app
+<!-- Live Link : https://health-wellness-events-d3d8c.web.app -->
 
 ## Q&A Sections
 - Add at least 5 Project features of "Health Care Management"

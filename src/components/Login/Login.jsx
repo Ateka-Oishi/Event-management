@@ -3,36 +3,66 @@ import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
-   const { logIn, signInUsingGoogle } = useContext(AuthContext);
+   const { signUp, signInUsingGoogle } = useContext(AuthContext);
    const navigate = useNavigate();
   
    const handleLogin = e => {
       e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log(email, password);
+      console.log(e.currentTarget);
+      const form = new FormData(e.currentTarget);
+      const email = form.get('email');
+      const password = form.get('password');
+      const user = {email, password}
+      console.log(email, password);
+      //   const email = e.target.email.value;
+      //   const password = e.target.password.value;
+      //   console.log(email, password);
 
         
-        logIn(email, password)
+        signUp(email, password)
             .then(result => {
-                console.log(result.user)
+                console.log(result.user);
                 e.target.reset();
-                navigate('/');
+                navigate('/')
+                
+                Swal.fire({
+                  icon: 'success',
+                  title:'Login Successful!'
+               }
+               )
+              
+               
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Something went wrong!',
+                })
             })
    }
    const handleGoogleSignIn = () => {
       signInUsingGoogle()
           .then(result => {
-              console.log(result.user)
+              console.log(result.user);
+              Swal.fire({
+               icon: 'success',
+               title:'Login Successful!'
+            }
+            )
           })
           .catch(error => {
-              console.error(error)
+              console.error(error);
+              Swal.fire({
+               icon: 'error',
+               title: 'Oops... Login failed!',
+               text: 'Something went wrong!',
+             })
           })
   }
    
@@ -49,20 +79,21 @@ const Login = () => {
                      </p>
                      <input
                         type="email"
-                        placeholder="Email"
                         required
+                        placeholder="Email"
+                        name="email"
                         autoComplete="username"
                      />
                      <input
                         type="password"
-                        placeholder="Password"
+                        name="password"
                         required
+                        placeholder="Password"
                         autoComplete="current-password"
                      />
                      <input
                         type="submit"
-                        onSubmit={handleLogin}
-                        name=""
+                        onSubmit={handleLogin}       
                         value="Login"
                      />
                      <div className="col-md-12">

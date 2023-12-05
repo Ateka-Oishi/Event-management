@@ -17,7 +17,7 @@
     transition: 0.25s;
     margin-top: 5%;
 }
-.box input[type="name"],
+.box input[type="text"],
 .box input[type="email"],
 .box input[type="password"]
 .box input[type="submit"]
@@ -41,7 +41,7 @@
     text-transform: uppercase;
     font-weight: 500
 }
-.box input[type="name"]:focus,
+.box input[type="text"]:focus,
 .box input[type="email"]:focus,
 .box input[type="password"]:focus {
     width: 300px;

@@ -32,7 +32,7 @@ const Footer = () => {
                      <div>
                      <NavLink
                            className="nav-link text-white"
-                           to="/service"
+                           to="/service/:id"
                         >
                            Services
                         </NavLink>

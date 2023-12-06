@@ -45,4 +45,4 @@ npm run dev
 
 # Contributors
 
-- [Ateka Sultana](https://github.com/programming-hero-web-course-4/b8a9-event-management-Ateka-Oishi)
+- [Ateka Sultana](https://github.com/Ateka-Oishi/Event-management)
